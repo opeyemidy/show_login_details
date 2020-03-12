@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Crendentials display</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="row container-control">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Enter login details here</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                please input your email and password
+              </h6>
+              <hr />
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input
+                    type="email"
+                    v-model="inputemail"
+                    class="form-control"
+                  />
+                  <small id="emailHelp" class="form-text text-muted"
+                    >We'll never share your email with anyone else.</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input
+                    v-model="inputpassword"
+                    type="password"
+                    class="form-control"
+                  />
+                </div>
+                <button
+                  type="button"
+                  @click.prevent="onSubmit"
+                  class="btn btn-primary"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" v-if="show">
+            <div class="card-body">
+              <h5 class="card-title">Your Details</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Your Authentication details is displayed below
+              </h6>
+              <hr />
+              <h4 class="card-title">
+                <strong class="h5">Email:</strong>
+                <span class="card-subtitle h6 text-muted">{{email}}</span>
+              </h4>
+              <h4 class="card-title">
+                <strong class="h5">password:</strong>
+                <span class="card-subtitle h6 text-muted">{{password}}</span>
+              </h4>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
